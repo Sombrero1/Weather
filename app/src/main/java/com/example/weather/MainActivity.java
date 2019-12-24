@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView tc = findViewById(R.id.textView);
+         tv = findViewById(R.id.textView);
         btn= findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private class MyDownload extends AsyncTask<Void, Void,String>{
+    private class MyDownload extends AsyncTask<Void, Void, String>{
 
             HttpURLConnection httpurl;
         @Override
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (java.io.IOException e) {
                 e.printStackTrace();
+                Log.e("RRRR",e.toString());
             }
 
 
